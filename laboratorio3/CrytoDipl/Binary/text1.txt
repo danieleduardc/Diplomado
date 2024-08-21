@@ -1,0 +1,35 @@
+#1 install zsh
+sudo apt install zsh
+
+#2 permises zsh
+chsh -s $(which zsh)
+
+#3 install oh my zsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+#4 install de p10k configure
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+#5 🤩 Autocomplete while you type a command 
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+ 
+ #6 🎉 Zsh sytax highlighting 
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+sudo nano ~/.zshrc
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+#configure zsh
+p10k configure
+
+#donwload fonts
+https://github.com/romkatv/powerlevel10k-media/raw/master MesloLGS%20NF%20Regular.ttf
+https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
